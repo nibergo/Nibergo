@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nibergo Integrated Enterprise</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background-color: #fffdf7;
+      background: #fffef9;
       color: #333;
     }
     header {
-      background-color: #8B5E3C; /* Brown from logo */
+      background: #8B5E3C;
       color: white;
-      padding: 2.5rem 1rem;
       text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+    header img.logo {
+      max-width: 120px;
+      display: block;
+      margin: 0 auto 1rem;
     }
     section {
-      padding: 2rem 1rem;
-      max-width: 850px;
-      margin: auto;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
     }
     h2 {
-      color: #4C7029; /* Olive green from logo */
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    footer {
-      background-color: #eee;
       color: #4C7029;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
     }
     .btn {
-      background-color: #4C7029;
+      background: #4C7029;
       color: white;
       padding: 0.75rem 1.5rem;
       text-decoration: none;
@@ -46,59 +42,118 @@
       display: inline-block;
       margin-top: 1rem;
     }
-    img.logo {
-      max-width: 160px;
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .feature img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      background: #eee;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #4C7029;
+    }
+    .shop-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 1rem;
       margin: 1rem auto;
-      display: block;
+      max-width: 300px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .shop-item img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="NIBERGO LOGO.jpeg.jpg" alt="Nibergo Logo" class="logo" />
-    <h1>Nibergo Integrated Enterprise</h1>
-    <p>Transforming Food Systems in Western Kenya</p>
-  </header>
 
-  <section>
-    <h2>About Us</h2>
-    <p>
-      Nibergo Integrated Enterprise is a visionary agribusiness based in Western Kenya, dedicated to advancing sustainable and organic agriculture. Founded by Grace, we specialize in organic rice farming, milling, and packaging, while also offering eco-friendly farm inputs like natural fertilizers and organic pesticides.
-    </p>
-    <p>
-      We empower local communities—especially women and youth—through employment and training. Guided by the 13 principles of agroecology, our mission is to build regenerative, climate-smart farming systems that ensure food security and environmental sustainability.
-    </p>
-  </section>
+<header>
+  <img src="ca016da8-341e-4c8c-92c1-f2dcca26abca.png" alt="Nibergo Logo" class="logo">
+  <h1>Nibergo Integrated Enterprise</h1>
+  <p>Transforming Food Systems in Western Kenya</p>
+</header>
 
-  <section>
-    <h2>🌿 Our Focus Areas</h2>
-    <ul>
-      <li><strong>💧 Sustainable Organic Rice Farming:</strong> High-quality rice grown with ecological integrity.</li>
-      <li><strong>♻️ Eco-Friendly Farm Inputs:</strong> Natural fertilizers and pesticides that enhance soil health and reduce chemical use.</li>
-      <li><strong>🌱 Agroecological Innovation:</strong> We apply all 13 agroecology principles to build biodiverse, self-sustaining farms.</li>
-      <li><strong>🤝 Community Empowerment & Training:</strong> Training programs that equip farmers with climate-smart techniques.</li>
-    </ul>
-  </section>
+<section>
+  <h2>Welcome to Nibergo</h2>
+  <p>We are building a sustainable, food-secure Africa through organic farming, eco-friendly innovations, and community empowerment. Discover our range of organic rice, eco-friendly farm inputs, and now — nutritious cereals ready for your table!</p>
+</section>
 
-  <section>
-    <h2>Programs & Partners</h2>
-    <p><strong>📈 Neycha Acceleration Program:</strong> Scaling our operations through robust networks and enhanced distribution.</p>
-    <p><strong>🤝 Partnership Opportunities:</strong> We welcome collaborations with NGOs, agritech firms, sustainability advocates, and government agencies.</p>
-  </section>
+<section>
+  <h2>🌾 Our Core Focus Areas</h2>
+  <div class="features">
+    <div class="feature">
+      <img src="rice-field.jpg" alt="Rice Farming">
+      <h3>Organic Rice Farming</h3>
+      <p>We grow high-quality rice using eco-conscious, climate-smart practices.</p>
+    </div>
+    <div class="feature">
+      <img src="fertilizer.jpg" alt="Eco-Friendly Fertilizers">
+      <h3>Eco-Friendly Farm Inputs</h3>
+      <p>Natural fertilizers and organic pesticides that enrich soil health and reduce chemicals.</p>
+    </div>
+    <div class="feature">
+      <img src="community-training.jpg" alt="Community Training">
+      <h3>Farmer Training & Empowerment</h3>
+      <p>We equip farmers, especially women and youth, with skills for sustainable agriculture.</p>
+    </div>
+    <div class="feature">
+      <img src="cereals.jpg" alt="Cereals">
+      <h3>Nutritious Cereals</h3>
+      <p>High-quality cereals grown with care — available for direct purchase.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-    <p>Phone / WhatsApp: <a href="tel:+254700000000">+254 700 000 000</a></p>
-    <p>Location: Western Kenya</p>
-    <p>Website: <a href="#">Your Site Link Here</a></p>
-    <a class="btn" href="#contact">Let’s Connect</a>
-  </section>
+<section>
+  <h2>🛒 Shop Our Products</h2>
+  <div class="shop-item">
+    <img src="cereals.jpg" alt="Organic Cereals">
+    <h3>Organic Cereal Pack (2kg)</h3>
+    <p>Ksh 800</p>
+    <a class="btn" href="https://mpesa-link-placeholder.com">Order via M-Pesa</a>
+  </div>
+  <div class="shop-item">
+    <img src="rice-pack.jpg" alt="Packaged Rice">
+    <h3>Premium Organic Rice (5kg)</h3>
+    <p>Ksh 1500</p>
+    <a class="btn" href="https://mpesa-link-placeholder.com">Order via M-Pesa</a>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 Nibergo Integrated Enterprise. All rights reserved.</p>
-    <p><em>From Paddles to Plate</em></p>
-  </footer>
+<section>
+  <h2>🌍 Partner with Us</h2>
+  <p>We are scaling our impact through the Neycha Acceleration Program and welcoming new partners — NGOs, agritech, sustainability organizations, and governments — to amplify our mission.</p>
+</section>
+
+<section id="contact">
+  <h2>📞 Contact Us</h2>
+  <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+  <p>Phone / WhatsApp: <a href="tel:+254700000000">+254 700 000 000</a></p>
+  <p>Location: Western Kenya</p>
+  <p>Website: <a href="#">www.nibergo-enterprise.com</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Nibergo Integrated Enterprise | From Paddles to Plate</p>
+</footer>
+
 </body>
 </html>
-
