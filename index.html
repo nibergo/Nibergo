@@ -181,6 +181,55 @@
       color: #4C7029;
       font-weight: bold;
     }
+
+    /* MODAL BACKGROUND */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+    /* MODAL BOX */
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 700px;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+    /* CLOSE BUTTON */
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+    /* PARTNER GRID */
+    .partners {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .partner img {
+      max-width: 100px;
+      margin-bottom: 0.5rem;
+    }
+    .partner p {
+      font-size: 0.9rem;
+      color: #4C7029;
+    }
+    /* ANIMATION */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
   </style>
 </head>
 <body>
@@ -261,7 +310,30 @@
 <section>
   <h2>🤝 Partner with Us</h2>
   <p>We are scaling our impact through the Neycha Acceleration Program and welcoming new partners — NGOs, agritech innovators, sustainability organizations, and governments — to amplify our mission.</p>
+  <button class="btn" id="openModal">View Community Partnerships</button>
 </section>
+
+<!-- POPUP MODAL -->
+<div id="partnershipModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>🌍 Our Community Partnerships</h3>
+    <div class="partners">
+      <div class="partner">
+        <img src="partner1-logo.png" alt="Partner 1">
+        <p>Partner Organization 1</p>
+      </div>
+      <div class="partner">
+        <img src="partner2-logo.png" alt="Partner 2">
+        <p>Partner Organization 2</p>
+      </div>
+      <div class="partner">
+        <img src="partner3-logo.png" alt="Partner 3">
+        <p>Partner Organization 3</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -286,6 +358,30 @@
     <a href="#">WhatsApp</a>
   </div>
 </footer>
+
+<script>
+  // Get elements
+  const modal = document.getElementById("partnershipModal");
+  const btn = document.getElementById("openModal");
+  const closeBtn = document.querySelector(".close");
+
+  // Open modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // Close modal
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close if user clicks outside box
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
 
 </body>
 </html>
