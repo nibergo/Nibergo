@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nibergo Integrated Enterprise</title>
+  <link rel="icon" href="logo.png" type="image/png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,27 +12,38 @@
       padding: 0;
       background: #fffef9;
       color: #333;
+      line-height: 1.6;
     }
+    /* HERO SECTION */
     header {
-      background: #8B5E3C;
+      background: url('hero-ricefield.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 5rem 2rem;
       position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    header .content {
+      position: relative;
+      z-index: 1;
     }
     header img.logo {
       max-width: 120px;
       display: block;
       margin: 0 auto 1rem;
     }
-    section {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-      text-align: center;
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
-    h2 {
-      color: #4C7029;
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
     .btn {
       background: #4C7029;
@@ -41,20 +53,36 @@
       border-radius: 5px;
       display: inline-block;
       margin-top: 1rem;
-      cursor: pointer;
+      transition: background 0.3s;
     }
+    .btn:hover {
+      background: #36541f;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    h2 {
+      color: #4C7029;
+      margin-bottom: 1rem;
+    }
+
+    /* FEATURES */
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
     }
     .feature {
       background: #f9f9f9;
       border-radius: 8px;
-      padding: 1rem;
+      padding: 1.5rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.3s;
     }
     .feature:hover {
       transform: translateY(-5px);
@@ -62,216 +90,296 @@
     .feature img {
       max-width: 100%;
       border-radius: 5px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    footer {
-      background: #eee;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #4C7029;
+
+    /* SHOP */
+    .shop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
     .shop-item {
       background: #fff;
       border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 8px;
       padding: 1rem;
-      margin: 1rem auto;
-      max-width: 300px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .shop-item:hover {
+      transform: translateY(-5px);
     }
     .shop-item img {
       max-width: 100%;
-      height: auto;
+      border-radius: 5px;
       margin-bottom: 1rem;
     }
-    /* Modal styling */
+
+    /* IMPACT NUMBERS */
+    .impact {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .impact div {
+      background: #4C7029;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 0.5rem;
+      flex: 1;
+      min-width: 200px;
+    }
+    .impact h3 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    /* CONTACT */
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    form input, form textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    form button {
+      background: #4C7029;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: #36541f;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #eee;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #4C7029;
+    }
+    .socials a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #4C7029;
+      font-weight: bold;
+    }
+
+    /* MODAL BACKGROUND */
     .modal {
-      display: none;
+      display: none; 
       position: fixed;
       z-index: 1000;
       left: 0; top: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.6);
     }
+    /* MODAL BOX */
     .modal-content {
       background: #fff;
-      margin: 5% auto;
+      margin: 10% auto;
       padding: 2rem;
       border-radius: 10px;
-      max-width: 800px;
+      max-width: 700px;
       text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease;
     }
-    .modal-content img, 
-    .modal-content video {
-      max-width: 100%;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
+    /* CLOSE BUTTON */
     .close {
-      float: right;
-      font-size: 28px;
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 1.5rem;
       cursor: pointer;
+      color: #333;
+    }
+    /* PARTNER GRID */
+    .partners {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .partner img {
+      max-width: 100px;
+      margin-bottom: 0.5rem;
+    }
+    .partner p {
+      font-size: 0.9rem;
+      color: #4C7029;
+    }
+    /* ANIMATION */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
     }
   </style>
 </head>
 <body>
 
+<!-- HERO -->
 <header>
-  <img src="images/logoclean.png" alt="Nibergo Logo" class="logo">
-  <h1>Nibergo Integrated Enterprise</h1>
-  <p>Transforming Food Systems in Western Kenya</p>
+  <div class="content">
+    <img src="images/logoclean.png" alt="Nibergo Logo" class="logo">
+    <h1>Nibergo Integrated Enterprise</h1>
+    <p>Transforming Food Systems in Western Kenya</p>
+    <a href="#shop" class="btn">🌾 Explore Our Products</a>
+  </div>
 </header>
 
+<!-- VISION -->
 <section>
   <h2>Welcome to Nibergo</h2>
-  <p>We are building a sustainable, food-secure Africa through organic farming, eco-friendly innovations, and community empowerment. Discover our range of organic rice, eco-friendly farm inputs, and now — nutritious cereals ready for your table!</p>
+  <p>We are building a sustainable, food-secure Africa through organic farming, eco-friendly innovations, and community empowerment. Our mission is not just to grow crops, but to grow futures — resilient farmers, thriving communities, and healthy families.</p>
 </section>
 
+<!-- FOCUS AREAS -->
 <section>
-  <h2>🌾 Our Core Focus Areas</h2>
+  <h2>🌍 Our Core Focus Areas</h2>
+  <div class="features">
     <div class="feature">
-      <img src="images/rice2.png" alt="Eco-Friendly Fertilizers">
+      <img src="images/ricefield.jpg" alt="Rice Farming">
+      <h3>Organic Rice Farming</h3>
+      <p>We grow high-quality rice using eco-conscious, climate-smart practices.</p>
+    </div>
+    <div class="feature">
+      <img src="fertilizer.jpg" alt="Eco-Friendly Fertilizers">
       <h3>Eco-Friendly Farm Inputs</h3>
       <p>Natural fertilizers and organic pesticides that enrich soil health and reduce chemicals.</p>
     </div>
     <div class="feature">
-      <img src="images/riceF.jpg" alt="Community Training">
+      <img src="community-training.jpg" alt="Community Training">
       <h3>Farmer Training & Empowerment</h3>
       <p>We equip farmers, especially women and youth, with skills for sustainable agriculture.</p>
     </div>
     <div class="feature">
-      <img src="images/harvest.jpg" alt="Cereals">
+      <img src="cereals.jpg" alt="Cereals">
       <h3>Nutritious Cereals</h3>
       <p>High-quality cereals grown with care — available for direct purchase.</p>
     </div>
   </div>
 </section>
 
+<!-- IMPACT -->
 <section>
+  <h2>📊 Our Impact</h2>
+  <div class="impact">
+    <div><h3>300+</h3><p>Farmers Trained</p></div>
+    <div><h3>10+ Tons</h3><p>Organic Rice Produced</p></div>
+    <div><h3>12</h3><p>Community Partnerships</p></div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
   <h2>🛒 Shop Our Products</h2>
-  <div class="shop-item">
-    <img src="images/ricepack.png" alt="Organic Cereals">
-    <h3>Organic Cereal Pack (2kg)</h3>
-    <p>Ksh 400</p>
-    <a class="btn" href="#">Order via M-Pesa</a>
-  </div>
-  <div class="shop-item">
-    <img src="images/ricefield.jpg" alt="Packaged Rice">
-    <h3>Premium Organic Rice (5kg)</h3>
-    <p>Ksh 1100</p>
-    <a class="btn" href="#">Order via M-Pesa</a>
-  </div>
-</section>
-
-<!-- OUR IMPACT SECTION -->
-<section id="impact">
-  <h2>🌍 Our Impact</h2>
-  <p>
-    At Nibergo Integrated Enterprise, impact is more than a word — it is the heartbeat of our mission.  
-    Every harvest, every job created, and every smile in the community is proof that sustainable 
-    agriculture can drive real transformation in Western Kenya.
-  </p>
-
-  <div class="features">
-      <h3>🌾 Rice Harvesting</h3>
-      <p>
-        From seed to plate, our rice journey is one of resilience and innovation.  
-        With climate-smart farming practices and mechanized harvesting, we not only ensure 
-        food security but also demonstrate that Africa can feed Africa sustainably.
-      </p>
-      <button class="btn">View Harvest Story</button>
+  <div class="shop">
+    <div class="shop-item">
+      <img src="cereals.jpg" alt="Organic Cereals">
+      <h3>Organic Cereal Pack (2kg)</h3>
+      <p>Ksh 800</p>
+      <a class="btn" href="https://mpesa-link-placeholder.com">Order via M-Pesa</a>
     </div>
-      <img src="images/youth1.jpg" alt="Youth Employment">
-      <h3>👩‍🌾 Youth Employment</h3>
-      <p>
-        Agriculture is not just about crops — it’s about people.  
-        By employing and training local youth, we are turning farming into a dignified career, 
-        reducing unemployment, and equipping the next generation with the skills to lead Africa’s green revolution.
-      </p>
-      <button class="btn">Meet the Youth</button>
-    </div>
-      <img src="images/community1.jpg" alt="Community Outreach">
-      <h3>🤝 Community Outreach</h3>
-      <p>
-        We believe change happens together. Through farmer trainings, women empowerment initiatives, 
-        and partnerships with local leaders, we are strengthening communities and ensuring that 
-        no one is left behind in the fight for food security.
-      </p>
-      <button class="btn">View Outreach</button>
+    <div class="shop-item">
+      <img src="rice-pack.jpg" alt="Packaged Rice">
+      <h3>Premium Organic Rice (5kg)</h3>
+      <p>Ksh 1500</p>
+      <a class="btn" href="https://mpesa-link-placeholder.com">Order via M-Pesa</a>
     </div>
   </div>
 </section>
 
-<!-- Impact Gallery Modal -->
-<div id="impactModal" class="modal">
+<!-- PARTNERSHIP -->
+<section>
+  <h2>🤝 Partner with Us</h2>
+  <p>We are scaling our impact through the Neycha Acceleration Program and welcoming new partners — NGOs, agritech innovators, sustainability organizations, and governments — to amplify our mission.</p>
+  <button class="btn" id="openModal">View Community Partnerships</button>
+</section>
+
+<!-- POPUP MODAL -->
+<div id="partnershipModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeImpactGallery()">&times;</span>
-    <div id="impactGalleryContent"></div>
+    <span class="close">&times;</span>
+    <h3>🌍 Our Community Partnerships</h3>
+    <div class="partners">
+      <div class="partner">
+        <img src="images/somo.jpeg" alt="SOMO">
+        <p>Somo Africa</p>
+      </div>
+      <div class="partner">
+        <img src="images/neychaf.png" alt="NEYCHA">
+        <p>Neycha</p>
+      </div>
+      <div class="partner">
+        <img src="partner3-logo.png" alt="Partner 3">
+        <p>Partner Organization 3</p>
+      </div>
+    </div>
   </div>
 </div>
 
-<section>
-  <h2>🌍 Partner with Us</h2>
-  <p>We are scaling our impact through the Neycha Acceleration Program and welcoming new partners — NGOs, agritech, sustainability organizations, and governments — to amplify our mission.</p>
-</section>
-
+<!-- CONTACT -->
 <section id="contact">
   <h2>📞 Contact Us</h2>
-  <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-  <p>Phone / WhatsApp: <a href="tel:+254700000000">+254 700 000 000</a></p>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p>Email: <a href="mailto:your-email@example.com">internibergo@gmail.com</a></p>
+  <p>Phone / WhatsApp: <a href="tel:+254700000000">+254724758760</a></p>
   <p>Location: Western Kenya</p>
-  <p>Website: <a href="#">www.nibergo-enterprise.com</a></p>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Nibergo Integrated Enterprise | From Paddies to Plate</p>
+  <p>© 2025 Nibergo Integrated Enterprise | From Paddles to Plate</p>
+  <div class="socials">
+    <a href="#">Facebook</a> |
+    <a href="#">Instagram</a> |
+    <a href="#">WhatsApp</a>
+  </div>
 </footer>
 
 <script>
-  // Data for impact galleries (photos + videos)
-  const impactData = {
-    harvest: [
-      { type: "image", src: "images/harvest1.jpg" },
-      { type: "image", src: "images/harvest.jpg" },
-      { type: "video", src: "images/harvestingmachine.mp4" }
-    ],
-    youth: [
-      { type: "image", src: "images/youth1.jpg" },
-      { type: "image", src: "posthavest.jpg" },
-      { type: "video", src: "videos/youth-training.mp4" }
-    ],
-    community: [
-      { type: "image", src: "images/community1.jpg" },
-      { type: "image", src: "images/community2.jpg" },
-      { type: "video", src: "videos/community-outreach.mp4" }
-    ]
-  };
+  // Get elements
+  const modal = document.getElementById("partnershipModal");
+  const btn = document.getElementById("openModal");
+  const closeBtn = document.querySelector(".close");
 
-  function openImpactGallery(section) {
-    const galleryContent = document.getElementById("impactGalleryContent");
-    galleryContent.innerHTML = ""; // Clear old content
-
-    impactData[section].forEach(item => {
-      if (item.type === "image") {
-        const img = document.createElement("img");
-        img.src = item.src;
-        galleryContent.appendChild(img);
-      } else if (item.type === "video") {
-        const video = document.createElement("video");
-        video.src = item.src;
-        video.controls = true;
-        galleryContent.appendChild(video);
-      }
-    });
-
-    document.getElementById("impactModal").style.display = "block";
+  // Open modal
+  btn.onclick = function() {
+    modal.style.display = "block";
   }
 
-  function closeImpactGallery() {
-    document.getElementById("impactModal").style.display = "none";
+  // Close modal
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close if user clicks outside box
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
 </script>
 
